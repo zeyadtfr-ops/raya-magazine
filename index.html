@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="راية المستقبل — مجلة طلابية رقمية تهتم بقضايا التعليم والشأن الطالبي">
+<title>راية المستقبل — مجلة طلابية رقمية | RAYA · E-MAGAZINE</title>
+
+<!-- Fonts: Tajawal for headings, IBM Plex Sans Arabic for body -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   RAYA E-MAGAZINE — Centralized Design System
+   Extracted from reference site z1v4k9h962g1-d.space-z.ai
+   ============================================================ */
+:root {
+  /* Brand palette — exact HEX from reference */
+  --primary-color:    #032B22;  /* dark forest green — header */
+  --secondary-color:  #063D30;  /* deep green — accents/sections */
+  --accent-color:     #C9A04A;  /* gold — primary highlight */
+  --accent-soft:      #E8DFC8;  /* light beige surface */
+  --background-color: #F6F2E9;  /* warm cream paper */
+  --surface-color:    #FFFFFF;  /* card surface */
+  --text-primary:     #202820;  /* ink — body text */
+  --text-secondary:   #5A6358;  /* muted body */
+  --text-cream:       #F6F2E9;  /* text on dark */
+  --text-cream-muted: #B9B5A8;  /* muted cream on dark */
+  --border-color:     #DED6C5;  /* beige border */
+  --border-strong:    #C4BCA8;  /* stronger border */
+  --danger:           #B23A3A;  /* breaking news red */
+  --shadow-sm:  0 1px 2px rgba(32,40,32,0.04), 0 1px 3px rgba(32,40,32,0.06);
+  --shadow-md:  0 4px 12px rgba(32,40,32,0.06), 0 2px 4px rgba(32,40,32,0.04);
+  --shadow-lg:  0 12px 28px rgba(32,40,32,0.08), 0 4px 8px rgba(32,40,32,0.04);
+  --radius-sm:  3px;
+  --radius:     6px;
+  --radius-lg:  12px;
+  --font-heading: 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
+  --font-body:    'IBM Plex Sans Arabic', 'Tajawal', system-ui, sans-serif;
+  --container:    1280px;
+  --transition:   0.2s ease;
+}
+
+/* Reset & base */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-body);
+  background: var(--background-color);
+  color: var(--text-primary);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; transition: color var(--transition); }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+ul { list-style: none; }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+.container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+
+/* Accessibility helpers */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; top: -40px; right: 0;
+  background: var(--accent-color); color: var(--primary-color);
+  padding: 8px 16px; z-index: 999; border-radius: 0 0 0 var(--radius-sm);
+}
+.skip-link:focus { top: 0; }
+:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 2px; }
+
+/* A. Header & Navigation */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--primary-color); color: var(--text-cream);
+  border-bottom: 1px solid rgba(201, 160, 74, 0.18);
+  transition: box-shadow var(--transition);
+}
+.site-header.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.25); }
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; height: 72px;
+}
+.brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.brand-mark {
+  width: 44px; height: 44px;
+  background: var(--accent-color); color: var(--primary-color);
+  border-radius: var(--radius-sm);
+  display: grid; place-items: center;
+  font-family: var(--font-heading);
+  font-weight: 900; font-size: 24px; letter-spacing: -0.5px;
+}
+.brand-text { line-height: 1.1; }
+.brand-name {
+  font-family: var(--font-heading); font-weight: 800;
+  font-size: 18px; color: var(--text-cream);
+}
+.brand-tag {
+  font-size: 10px; letter-spacing: 2px;
+  color: var(--accent-color); text-transform: uppercase; font-weight: 600;
+}
+.nav-menu {
+  display: flex; align-items: center; gap: 4px;
+  flex: 1; justify-content: center;
+}
+.nav-menu a {
+  padding: 8px 14px; font-size: 14px; font-weight: 500;
+  color: var(--text-cream); border-radius: var(--radius-sm);
+  position: relative; transition: all var(--transition);
+}
+.nav-menu a:hover, .nav-menu a.active { color: var(--accent-color); }
+.nav-menu a.active::after {
+  content: ''; position: absolute;
+  bottom: 2px; right: 14px; left: 14px;
+  height: 2px; background: var(--accent-color); border-radius: 2px;
+}
+.header-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.icon-btn {
+  width: 38px; height: 38px;
+  display: grid; place-items: center;
+  border-radius: var(--radius-sm);
+  color: var(--text-cream); transition: all var(--transition);
+}
+.icon-btn:hover { background: rgba(255,255,255,0.08); color: var(--accent-color); }
+.icon-btn svg { width: 18px; height: 18px; }
+.menu-toggle {
+  display: none;
+  width: 38px; height: 38px;
+  place-items: center;
+  border-radius: var(--radius-sm);
+  color: var(--text-cream);
+}
+.menu-toggle:hover { background: rgba(255,255,255,0.08); }
+.menu-toggle svg { width: 22px; height: 22px; }
+
+/* Search overlay */
+.search-overlay {
+  position: fixed; inset: 0;
+  background: rgba(3, 43, 34, 0.97);
+  z-index: 200; display: none;
+  align-items: flex-start; justify-content: center; padding-top: 120px;
+}
+.search-overlay.active { display: flex; }
+.search-box { width: 90%; max-width: 640px; position: relative; }
+.search-box input {
+  width: 100%; padding: 18px 56px 18px 20px;
+  background: transparent; border: none;
+  border-bottom: 2px solid var(--accent-color);
+  color: var(--text-cream); font-size: 22px;
+  font-family: var(--font-body); outline: none;
+}
+.search-box input::placeholder { color: var(--text-cream-muted); }
+.search-box .search-icon {
+  position: absolute; right: 12px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-color); width: 26px; height: 26px;
+}
+.search-box .close-search {
+  position: absolute; top: -60px; left: 0;
+  color: var(--text-cream); font-size: 14px;
+  display: flex; align-items: center; gap: 6px;
+}
+.search-suggestions { margin-top: 24px; color: var(--text-cream-muted); font-size: 14px; }
+.search-suggestions strong { color: var(--accent-color); }
+.search-suggestions a {
+  display: inline-block; margin: 6px 6px 0 0;
+  padding: 6px 12px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 999px; font-size: 13px; color: var(--text-cream);
+}
+.search-suggestions a:hover { border-color: var(--accent-color); color: var(--accent-color); }
+
+/* Mobile menu */
+.mobile-menu {
+  position: fixed; top: 0; right: -100%;
+  width: 85%; max-width: 340px; height: 100vh;
+  background: var(--primary-color); z-index: 200;
+  padding: 24px; transition: right 0.3s ease; overflow-y: auto;
+}
+.mobile-menu.open { right: 0; }
+.mobile-menu-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5); z-index: 199; display: none;
+}
+.mobile-menu-overlay.active { display: block; }
+.mobile-menu-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 16px;
+}
+.mobile-menu nav { display: flex; flex-direction: column; gap: 4px; }
+.mobile-menu nav a {
+  padding: 14px 12px; color: var(--text-cream); font-size: 16px;
+  border-radius: var(--radius-sm); font-weight: 500;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.mobile-menu nav a:hover { background: rgba(255,255,255,0.05); color: var(--accent-color); }
+
+/* B. Hero Section */
+.hero {
+  background: var(--primary-color); color: var(--text-cream);
+  padding: 60px 0 70px; position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute;
+  top: 0; right: -100px; width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(201,160,74,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 14px;
+  font-size: 12px; letter-spacing: 2px;
+  color: var(--accent-color); text-transform: uppercase;
+  font-weight: 600; margin-bottom: 24px;
+}
+.hero-eyebrow .divider { flex: 1; height: 1px; background: rgba(201,160,74,0.25); max-width: 60px; }
+.hero-eyebrow .date { color: var(--text-cream-muted); letter-spacing: 0; font-weight: 400; font-size: 13px; }
+.hero-eyebrow a { color: var(--accent-color); font-weight: 500; }
+.hero-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 40px; }
+.hero-main { display: grid; grid-template-rows: 1fr; }
+.hero-main-image {
+  position: relative; aspect-ratio: 16 / 10;
+  overflow: hidden; border-radius: var(--radius); margin-bottom: 24px;
+}
+.hero-main-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.hero-main:hover .hero-main-image img { transform: scale(1.03); }
+.hero-main-image .category-badge {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--accent-color); color: var(--primary-color);
+  padding: 6px 14px; border-radius: var(--radius-sm);
+  font-size: 12px; font-weight: 700; letter-spacing: 0.5px;
+}
+.hero-main h1 {
+  color: var(--text-cream);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 800; line-height: 1.2; margin-bottom: 14px;
+}
+.hero-main h1 a:hover { color: var(--accent-color); }
+.hero-main .excerpt {
+  color: var(--text-cream-muted); font-size: 16px;
+  line-height: 1.7; margin-bottom: 18px; max-width: 90%;
+}
+.hero-meta {
+  display: flex; align-items: center; gap: 18px;
+  font-size: 13px; color: var(--text-cream-muted);
+  padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1);
+  flex-wrap: wrap;
+}
+.hero-meta .author {
+  display: flex; align-items: center; gap: 8px;
+  color: var(--text-cream); font-weight: 500;
+}
+.hero-meta .author-avatar {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--accent-color); color: var(--primary-color);
+  display: grid; place-items: center; font-size: 11px;
+  font-weight: 700; font-family: var(--font-heading);
+}
+.read-more {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--accent-color); font-weight: 600;
+  font-size: 14px; margin-right: auto;
+}
+.read-more svg { width: 14px; height: 14px; transition: transform var(--transition); }
+.read-more:hover svg { transform: translateX(-4px); }
+.hero-side { display: flex; flex-direction: column; gap: 20px; }
+.hero-side-item {
+  display: grid; grid-template-columns: 120px 1fr; gap: 16px;
+  padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.hero-side-item:last-child { border-bottom: none; padding-bottom: 0; }
+.hero-side-image { aspect-ratio: 1; overflow: hidden; border-radius: var(--radius-sm); }
+.hero-side-image img { width: 100%; height: 100%; object-fit: cover; }
+.hero-side-content .cat {
+  font-size: 11px; color: var(--accent-color);
+  font-weight: 700; letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase;
+}
+.hero-side-content h3 {
+  color: var(--text-cream); font-size: 16px;
+  font-weight: 700; line-height: 1.4; margin-bottom: 8px;
+}
+.hero-side-content h3 a:hover { color: var(--accent-color); }
+.hero-side-content .meta {
+  font-size: 12px; color: var(--text-cream-muted);
+  display: flex; gap: 10px; align-items: center;
+}
+.hero-side-content .meta .views { display: flex; align-items: center; gap: 4px; }
+.hero-side-content .meta svg { width: 12px; height: 12px; }
+
+/* C. Breaking News Ticker */
+.breaking {
+  background: var(--text-primary); color: var(--text-cream);
+  padding: 12px 0; overflow: hidden; border-bottom: 1px solid var(--accent-color);
+}
+.breaking-inner { display: flex; align-items: center; gap: 16px; }
+.breaking-label {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--danger); color: var(--text-cream);
+  padding: 6px 14px; border-radius: var(--radius-sm);
+  font-size: 12px; font-weight: 700; letter-spacing: 1px;
+  flex-shrink: 0; text-transform: uppercase;
+}
+.breaking-label .pulse {
+  width: 8px; height: 8px; background: var(--text-cream);
+  border-radius: 50%; animation: pulse 1.4s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.4); }
+}
+.breaking-track { flex: 1; overflow: hidden; position: relative; height: 24px; }
+.breaking-track-inner {
+  display: flex; align-items: center; gap: 40px;
+  white-space: nowrap; animation: scroll-rtl 35s linear infinite;
+  position: absolute; right: 0;
+}
+@keyframes scroll-rtl {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+.breaking-track:hover .breaking-track-inner { animation-play-state: paused; }
+.breaking-item { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+.breaking-item .cat { color: var(--accent-color); font-weight: 700; }
+.breaking-item .time { color: var(--text-cream-muted); font-size: 11px; }
+.breaking-item::before {
+  content: '•'; color: var(--accent-color); margin-left: 20px;
+}
+.breaking-item:first-child::before { display: none; }
+
+/* Section header (reusable) */
+.section { padding: 64px 0; }
+.section-alt { background: var(--accent-soft); }
+.section-header {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 36px; padding-bottom: 16px;
+  border-bottom: 2px solid var(--text-primary); gap: 16px;
+}
+.section-title {
+  font-size: 30px; font-weight: 800; color: var(--text-primary);
+  display: flex; align-items: center; gap: 14px;
+}
+.section-title::before {
+  content: ''; width: 6px; height: 30px;
+  background: var(--accent-color); border-radius: var(--radius-sm);
+}
+.section-link {
+  font-size: 14px; font-weight: 600; color: var(--secondary-color);
+  display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+}
+.section-link:hover { color: var(--accent-color); }
+.section-link svg { width: 14px; height: 14px; }
+
+/* D. Latest Articles Grid + Popular sidebar */
+.articles-layout {
+  display: grid; grid-template-columns: 1fr 320px;
+  gap: 48px; align-items: start;
+}
+.articles-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.article-card {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius); overflow: hidden;
+  transition: all var(--transition);
+  display: flex; flex-direction: column;
+}
+.article-card:hover {
+  box-shadow: var(--shadow-lg); transform: translateY(-3px);
+  border-color: var(--accent-color);
+}
+.article-card-image { aspect-ratio: 16 / 10; overflow: hidden; position: relative; }
+.article-card-image img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.article-card:hover .article-card-image img { transform: scale(1.05); }
+.article-card-image .category-badge {
+  position: absolute; top: 12px; right: 12px;
+  background: var(--primary-color); color: var(--text-cream);
+  padding: 4px 10px; border-radius: var(--radius-sm);
+  font-size: 11px; font-weight: 700;
+}
+.article-card-body { padding: 18px 20px 20px; display: flex; flex-direction: column; flex: 1; }
+.article-card h3 {
+  font-size: 18px; font-weight: 700; line-height: 1.4;
+  margin-bottom: 10px; color: var(--text-primary);
+}
+.article-card h3 a:hover { color: var(--accent-color); }
+.article-card .excerpt {
+  font-size: 14px; color: var(--text-secondary);
+  line-height: 1.6; margin-bottom: 16px; flex: 1;
+}
+.article-card-meta {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 12px; color: var(--text-secondary);
+  padding-top: 14px; border-top: 1px solid var(--border-color);
+}
+.article-card-meta .author {
+  display: flex; align-items: center; gap: 8px;
+  font-weight: 500; color: var(--text-primary);
+}
+.article-card-meta .author-avatar {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--accent-color); color: var(--primary-color);
+  display: grid; place-items: center; font-size: 10px;
+  font-weight: 700; font-family: var(--font-heading);
+}
+.article-card-meta .right { display: flex; align-items: center; gap: 12px; }
+.article-card-meta .right span { display: flex; align-items: center; gap: 4px; }
+.article-card-meta svg { width: 12px; height: 12px; }
+
+/* Popular sidebar */
+.popular-sidebar {
+  background: var(--surface-color); border: 1px solid var(--border-color);
+  border-radius: var(--radius); padding: 24px;
+  position: sticky; top: 96px;
+}
+.popular-sidebar h4 {
+  font-size: 18px; font-weight: 800; margin-bottom: 20px;
+  padding-bottom: 12px; border-bottom: 2px solid var(--text-primary);
+  color: var(--text-primary);
+}
+.popular-list { display: flex; flex-direction: column; gap: 16px; }
+.popular-item {
+  display: grid; grid-template-columns: 36px 1fr; gap: 14px;
+  align-items: start; padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+.popular-item:last-child { border-bottom: none; padding-bottom: 0; }
+.popular-rank {
+  font-family: var(--font-heading); font-size: 28px;
+  font-weight: 900; color: var(--accent-color); line-height: 1;
+}
+.popular-item h5 { font-size: 14px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; }
+.popular-item h5 a:hover { color: var(--accent-color); }
+.popular-item .meta { font-size: 11px; color: var(--text-secondary); display: flex; gap: 8px; }
+.popular-item .meta .cat { color: var(--secondary-color); font-weight: 600; }
+
+/* E. Student Activities */
+.activities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.activity-card {
+  position: relative; aspect-ratio: 4 / 5;
+  border-radius: var(--radius); overflow: hidden;
+  background: var(--primary-color); cursor: pointer;
+}
+.activity-card img {
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0.55; transition: all 0.5s ease;
+}
+.activity-card:hover img { opacity: 0.4; transform: scale(1.05); }
+.activity-card-content {
+  position: absolute; inset: 0; padding: 24px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  color: var(--text-cream);
+}
+.activity-card-content::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(3,43,34,0.95) 0%, rgba(3,43,34,0.3) 60%, transparent 100%);
+  pointer-events: none;
+}
+.activity-card-content > * { position: relative; z-index: 1; }
+.activity-card .badge {
+  display: inline-block; background: var(--accent-color); color: var(--primary-color);
+  padding: 4px 10px; border-radius: var(--radius-sm);
+  font-size: 11px; font-weight: 700; margin-bottom: 12px; align-self: flex-start;
+}
+.activity-card h3 { color: var(--text-cream); font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+.activity-card p { color: var(--text-cream-muted); font-size: 13px; line-height: 1.6; }
+
+/* F. Interviews Section */
+.interviews-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 28px; }
+.interview-card {
+  background: var(--surface-color); border: 1px solid var(--border-color);
+  border-radius: var(--radius); overflow: hidden;
+  transition: all var(--transition); display: flex; flex-direction: column;
+}
+.interview-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+.interview-card.featured { grid-row: span 2; }
+.interview-portrait {
+  position: relative; aspect-ratio: 4 / 5; overflow: hidden;
+  background: var(--accent-soft);
+}
+.interview-card.featured .interview-portrait { aspect-ratio: 4 / 4; }
+.interview-portrait img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: grayscale(15%); transition: all 0.5s ease;
+}
+.interview-card:hover .interview-portrait img { filter: grayscale(0%); transform: scale(1.04); }
+.interview-portrait .quote-mark {
+  position: absolute; top: 16px; left: 16px;
+  font-family: var(--font-heading); font-size: 60px;
+  font-weight: 900; color: var(--accent-color);
+  line-height: 1; opacity: 0.9;
+}
+.interview-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+.interview-body .role {
+  font-size: 11px; color: var(--accent-color);
+  font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.interview-body h3 {
+  font-size: 18px; font-weight: 700;
+  margin-bottom: 10px; line-height: 1.35;
+}
+.interview-card.featured .interview-body h3 { font-size: 24px; }
+.interview-body h3 a:hover { color: var(--accent-color); }
+.interview-body .student {
+  font-size: 14px; color: var(--text-primary);
+  font-weight: 600; margin-bottom: 8px;
+}
+.interview-body .intro {
+  font-size: 13px; color: var(--text-secondary);
+  line-height: 1.6; margin-bottom: 14px; flex: 1;
+}
+.interview-card.featured .interview-body .intro { font-size: 15px; }
+.interview-body .read-interview {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 700; color: var(--secondary-color);
+  padding-top: 14px; border-top: 1px solid var(--border-color);
+}
+.interview-body .read-interview:hover { color: var(--accent-color); }
+.interview-body .read-interview svg { width: 14px; height: 14px; }
+
+/* G. Upcoming Events */
+.events-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.event-card {
+  display: grid; grid-template-columns: 100px 1fr; gap: 20px;
+  background: var(--surface-color); border: 1px solid var(--border-color);
+  border-radius: var(--radius); padding: 20px;
+  transition: all var(--transition); align-items: center;
+}
+.event-card:hover {
+  border-color: var(--accent-color); box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.event-date {
+  text-align: center; background: var(--primary-color);
+  color: var(--text-cream); padding: 14px 8px;
+  border-radius: var(--radius-sm); height: 100%;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.event-date .day {
+  font-family: var(--font-heading); font-size: 36px;
+  font-weight: 900; line-height: 1; color: var(--accent-color);
+}
+.event-date .month { font-size: 13px; font-weight: 600; margin-top: 4px; }
+.event-content .cat {
+  font-size: 11px; color: var(--accent-color);
+  font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.event-content h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; line-height: 1.35; }
+.event-content h3 a:hover { color: var(--accent-color); }
+.event-content .location {
+  font-size: 13px; color: var(--text-secondary);
+  display: flex; align-items: center; gap: 6px; margin-bottom: 12px;
+}
+.event-content .location svg { width: 14px; height: 14px; color: var(--accent-color); }
+.event-content .actions { display: flex; align-items: center; gap: 12px; }
+.btn-register {
+  padding: 6px 14px; background: var(--secondary-color);
+  color: var(--text-cream); border-radius: var(--radius-sm);
+  font-size: 12px; font-weight: 700; transition: all var(--transition);
+}
+.btn-register:hover { background: var(--accent-color); color: var(--primary-color); }
+.btn-details {
+  font-size: 12px; font-weight: 600; color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-color); padding-bottom: 2px;
+}
+.btn-details:hover { color: var(--accent-color); border-color: var(--accent-color); }
+
+/* H. Educational Opportunities */
+.opportunities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.opportunity-card {
+  background: var(--surface-color); border: 1px solid var(--border-color);
+  border-radius: var(--radius); overflow: hidden;
+  transition: all var(--transition); display: flex; flex-direction: column;
+}
+.opportunity-card:hover {
+  border-color: var(--accent-color); box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+.opportunity-header {
+  background: var(--primary-color); color: var(--text-cream);
+  padding: 20px; display: flex; align-items: center; justify-content: space-between;
+}
+.opportunity-type {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 700; color: var(--accent-color);
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.opportunity-type svg { width: 14px; height: 14px; }
+.deadline-badge {
+  background: rgba(201,160,74,0.15); color: var(--accent-color);
+  padding: 4px 10px; border-radius: 999px;
+  font-size: 11px; font-weight: 700; border: 1px solid rgba(201,160,74,0.4);
+}
+.opportunity-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+.opportunity-organizer {
+  font-size: 12px; color: var(--text-secondary);
+  font-weight: 500; margin-bottom: 6px;
+}
+.opportunity-body h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; line-height: 1.35; }
+.opportunity-body h3 a:hover { color: var(--accent-color); }
+.opportunity-body p {
+  font-size: 13px; color: var(--text-secondary);
+  line-height: 1.6; margin-bottom: 16px; flex: 1;
+}
+.opportunity-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 14px; border-top: 1px solid var(--border-color); font-size: 12px;
+}
+.opportunity-footer .date { color: var(--text-secondary); display: flex; align-items: center; gap: 6px; }
+.opportunity-footer .date svg { width: 12px; height: 12px; }
+.btn-apply {
+  padding: 6px 14px; background: var(--accent-color);
+  color: var(--primary-color); border-radius: var(--radius-sm);
+  font-size: 12px; font-weight: 700;
+}
+.btn-apply:hover { background: var(--primary-color); color: var(--accent-color); }
+
+/* J. Newsletter */
+.newsletter {
+  background: var(--primary-color); color: var(--text-cream);
+  padding: 72px 0; position: relative; overflow: hidden;
+}
+.newsletter::before, .newsletter::after {
+  content: ''; position: absolute; border-radius: 50%; pointer-events: none;
+}
+.newsletter::before {
+  top: -150px; right: -100px; width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(201,160,74,0.12), transparent 70%);
+}
+.newsletter::after {
+  bottom: -200px; left: -100px; width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(201,160,74,0.06), transparent 70%);
+}
+.newsletter-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; text-align: center; }
+.newsletter-eyebrow {
+  display: inline-block; color: var(--accent-color);
+  font-size: 12px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 16px;
+  padding: 6px 16px; border: 1px solid rgba(201,160,74,0.4); border-radius: 999px;
+}
+.newsletter h2 {
+  color: var(--text-cream); font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800; margin-bottom: 14px; line-height: 1.25;
+}
+.newsletter p {
+  color: var(--text-cream-muted); font-size: 16px;
+  margin-bottom: 32px; max-width: 540px;
+  margin-left: auto; margin-right: auto;
+}
+.newsletter-form {
+  display: flex; gap: 8px; max-width: 520px; margin: 0 auto;
+  background: rgba(255,255,255,0.06); padding: 6px;
+  border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.1);
+}
+.newsletter-form input {
+  flex: 1; padding: 14px 18px; background: transparent;
+  border: none; color: var(--text-cream); font-size: 15px;
+  font-family: inherit; outline: none;
+}
+.newsletter-form input::placeholder { color: var(--text-cream-muted); }
+.newsletter-form button {
+  padding: 12px 28px; background: var(--accent-color);
+  color: var(--primary-color); border-radius: var(--radius-sm);
+  font-size: 14px; font-weight: 700; transition: all var(--transition);
+}
+.newsletter-form button:hover { background: #D4AE5D; transform: translateY(-1px); }
+.newsletter-note { font-size: 12px; color: var(--text-cream-muted); margin-top: 16px; }
+
+/* K. Footer */
+.site-footer {
+  background: var(--text-primary); color: var(--text-cream);
+  padding: 64px 0 0;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  gap: 40px; padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer-brand .brand { margin-bottom: 16px; }
+.footer-brand .brand-mark { width: 48px; height: 48px; font-size: 26px; }
+.footer-brand .brand-name { color: var(--text-cream); font-size: 20px; }
+.footer-brand p {
+  color: var(--text-cream-muted); font-size: 14px;
+  line-height: 1.7; margin-bottom: 20px; max-width: 320px;
+}
+.footer-social { display: flex; gap: 10px; }
+.footer-social a {
+  width: 38px; height: 38px; display: grid; place-items: center;
+  border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-sm);
+  color: var(--text-cream); transition: all var(--transition);
+}
+.footer-social a:hover {
+  background: var(--accent-color); color: var(--primary-color);
+  border-color: var(--accent-color);
+}
+.footer-social svg { width: 16px; height: 16px; }
+.footer-col h4 {
+  color: var(--text-cream); font-size: 14px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 18px; padding-bottom: 12px;
+  border-bottom: 2px solid var(--accent-color); display: inline-block;
+}
+.footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+.footer-col a {
+  color: var(--text-cream-muted); font-size: 14px;
+  transition: all var(--transition);
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.footer-col a:hover { color: var(--accent-color); padding-right: 4px; }
+.footer-col a::before { content: '‹'; color: var(--accent-color); font-weight: 700; }
+.footer-contact li {
+  display: flex; align-items: flex-start; gap: 10px;
+  color: var(--text-cream-muted); font-size: 14px; margin-bottom: 12px;
+}
+.footer-contact svg { width: 16px; height: 16px; color: var(--accent-color); flex-shrink: 0; margin-top: 4px; }
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 0; font-size: 13px; color: var(--text-cream-muted);
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-bottom .legal { display: flex; gap: 20px; }
+.footer-bottom .legal a:hover { color: var(--accent-color); }
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-side { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .articles-layout { grid-template-columns: 1fr; }
+  .popular-sidebar { position: static; }
+  .activities-grid { grid-template-columns: repeat(2, 1fr); }
+  .interviews-grid { grid-template-columns: 1fr 1fr; }
+  .interview-card.featured { grid-row: span 1; grid-column: span 2; }
+  .opportunities-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 820px) {
+  .nav-menu { display: none; }
+  .header-actions .icon-btn:not(.search-toggle) { display: none; }
+  .menu-toggle { display: grid; }
+  .articles-grid { grid-template-columns: 1fr; }
+  .events-grid { grid-template-columns: 1fr; }
+  .hero-side { grid-template-columns: 1fr; }
+  .interviews-grid { grid-template-columns: 1fr; }
+  .interview-card.featured { grid-column: span 1; }
+  .opportunities-grid { grid-template-columns: 1fr; }
+  .activities-grid { grid-template-columns: 1fr; }
+  .section { padding: 48px 0; }
+  .section-title { font-size: 24px; }
+  .section-title::before { height: 24px; }
+  .hero { padding: 40px 0 50px; }
+  .hero-main h1 { font-size: 26px; }
+  .newsletter-form { flex-direction: column; }
+  .newsletter-form button { width: 100%; padding: 14px; }
+}
+@media (max-width: 560px) {
+  .container { padding: 0 16px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .hero-side-item { grid-template-columns: 90px 1fr; gap: 12px; }
+  .event-card { grid-template-columns: 80px 1fr; padding: 14px; gap: 14px; }
+  .event-date .day { font-size: 28px; }
+  .event-content h3 { font-size: 16px; }
+  .article-card-body { padding: 16px; }
+  .article-card h3 { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .breaking-track-inner { animation: none; }
+}
+</style>
+</head>
+
+
+
+<body>
+
+<a href="#main" class="skip-link">تخطّي إلى المحتوى الرئيسي</a>
+
+<!-- ============================================================
+     A. Header
+     ============================================================ -->
+<header class="site-header" id="header">
+  <div class="container header-inner">
+    <a href="#" class="brand" aria-label="راية المستقبل - الصفحة الرئيسية">
+      <div class="brand-mark">ر</div>
+      <div class="brand-text">
+        <div class="brand-name">راية المستقبل</div>
+        <div class="brand-tag">RAYA · E-MAGAZINE</div>
+      </div>
+    </a>
+
+    <nav class="nav-menu" aria-label="القائمة الرئيسية">
+      <a href="#hero" class="active">الرئيسية</a>
+      <a href="#latest">أخبار</a>
+      <a href="#articles">مقالات</a>
+      <a href="#activities">أنشطة</a>
+      <a href="#interviews">حوارات</a>
+      <a href="#events">فعاليات</a>
+      <a href="#opportunities">فرص</a>
+      <a href="#about">من نحن</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn search-toggle" aria-label="بحث" id="searchToggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <button class="icon-btn menu-toggle" aria-label="فتح القائمة" id="menuToggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Search overlay -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="بحث في المجلة">
+  <div class="search-box">
+    <button class="close-search" id="closeSearch">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      إغلاق (ESC)
+    </button>
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="search" placeholder="ابحث في المجلة..." autocomplete="off" id="searchInput">
+    <div class="search-suggestions">
+      <strong>اقتراحات شائعة:</strong>
+      <a href="#">أنشطة طلابية</a>
+      <a href="#">مسابقات</a>
+      <a href="#">منح دراسية</a>
+      <a href="#">فعاليات قادمة</a>
+      <a href="#">حوارات</a>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile menu -->
+<div class="mobile-menu-overlay" id="mobileOverlay"></div>
+<aside class="mobile-menu" id="mobileMenu" aria-label="قائمة الجوال">
+  <div class="mobile-menu-header">
+    <div class="brand">
+      <div class="brand-mark" style="width:36px;height:36px;font-size:20px;">ر</div>
+      <div class="brand-text">
+        <div class="brand-name" style="font-size:16px;">راية المستقبل</div>
+        <div class="brand-tag">RAYA · E-MAGAZINE</div>
+      </div>
+    </div>
+    <button class="icon-btn" id="closeMenu" aria-label="إغلاق">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <nav>
+    <a href="#hero">الرئيسية</a>
+    <a href="#latest">أخبار</a>
+    <a href="#articles">مقالات</a>
+    <a href="#activities">أنشطة</a>
+    <a href="#interviews">حوارات</a>
+    <a href="#events">فعاليات</a>
+    <a href="#opportunities">فرص</a>
+    <a href="#about">من نحن</a>
+  </nav>
+</aside>
+
+<!-- ============================================================
+     B. Hero
+     ============================================================ -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-eyebrow">
+      <span class="divider"></span>
+      <span>HIGHER INSTITUTE · RAYA E-MAGAZINE</span>
+      <span class="date">1 نوفمبر 2026</span>
+      <a href="#about">عن المجلة</a>
+      <a href="#latest">كل الأخبار</a>
+    </div>
+
+    <div class="hero-grid">
+      <article class="hero-main">
+        <div class="hero-main-image">
+          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&q=80&auto=format&fit=crop" alt="انطلاق العام الدراسي الجديد بمدرسة راية المستقبل" loading="eager">
+          <span class="category-badge">أخبار</span>
+        </div>
+        <h1><a href="#">انطلاق العام الدراسي الجديد بمدرسة راية المستقبل</a></h1>
+        <p class="excerpt">بدأت الدراسة في راية المستقبل بحماس كبير بين الطلاب وأولياء الأمور، وسط استعدادات مكثفة من إدارة المعهد لاستقبال الدفعة الجديدة وتأمين كافة المستلزمات التعليمية.</p>
+        <div class="hero-meta">
+          <span class="author">
+            <span class="author-avatar">م</span>
+            محمد طالب
+          </span>
+          <span>26 أكتوبر 2026</span>
+          <span>·</span>
+          <span>5 دقائق قراءة</span>
+          <a href="#" class="read-more">
+            اقرأ المزيد
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <aside class="hero-side">
+        <article class="hero-side-item">
+          <a href="#" class="hero-side-image">
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&q=80&auto=format&fit=crop" alt="حوار مع الطالب المتميز أحمد سامي" loading="lazy">
+          </a>
+          <div class="hero-side-content">
+            <div class="cat">حوار</div>
+            <h3><a href="#">حوار مع الطالب المتميز أحمد سامي</a></h3>
+            <div class="meta">
+              <span>21 أكتوبر 2026</span>
+              <span class="views">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                102
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="hero-side-item">
+          <a href="#" class="hero-side-image">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&q=80&auto=format&fit=crop" alt="ورشة عمل حول التفكير التصميمي" loading="lazy">
+          </a>
+          <div class="hero-side-content">
+            <div class="cat">أنشطة طلابية</div>
+            <h3><a href="#">ورشة عمل حول التفكير التصميمي للطلاب</a></h3>
+            <div class="meta">
+              <span>24 أكتوبر 2026</span>
+              <span class="views">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                75
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="hero-side-item">
+          <a href="#" class="hero-side-image">
+            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&q=80&auto=format&fit=crop" alt="أهمية القراءة في عصر التقنية" loading="lazy">
+          </a>
+          <div class="hero-side-content">
+            <div class="cat">رأي</div>
+            <h3><a href="#">أهمية القراءة في عصر التقنية</a></h3>
+            <div class="meta">
+              <span>18 أكتوبر 2026</span>
+              <span class="views">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                120
+              </span>
+            </div>
+          </div>
+        </article>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     C. Breaking News Ticker
+     ============================================================ -->
+<div class="breaking" aria-label="آخر الأخبار">
+  <div class="container breaking-inner">
+    <div class="breaking-label">
+      <span class="pulse"></span>
+      عاجل
+    </div>
+    <div class="breaking-track">
+      <div class="breaking-track-inner">
+        <span class="breaking-item"><span class="cat">أخبار</span> انطلاق العام الدراسي الجديد بمدرسة راية المستقبل <span class="time">· 26 أكتوبر</span></span>
+        <span class="breaking-item"><span class="cat">أنشطة</span> مبادرة تشجير المدرسة: ١٠٠ شجرة في يوم <span class="time">· 14 أكتوبر</span></span>
+        <span class="breaking-item"><span class="cat">رياضة</span> فريق كرة القدم بالمعهد يحقق المركز الثاني في دوري شرق الدلتا <span class="time">· 12 أكتوبر</span></span>
+        <span class="breaking-item"><span class="cat">ثقافة</span> طلاب المعهد يتألقون في مسابقات النشاط الثقافي بمنطقة شرق الدلتا <span class="time">· 9 أكتوبر</span></span>
+        <span class="breaking-item"><span class="cat">رياضة</span> عبد الله هشام محمد: بطل الكيك بوكس في وزن ٥٧ كجم <span class="time">· 5 أكتوبر</span></span>
+        <span class="breaking-item"><span class="cat">فنون</span> طالبات المعهد يتألقن في مسابقة الفنون التشكيلية بمنطقة شرق الدلتا <span class="time">· 2 أكتوبر</span></span>
+        <span class="breaking-item"><span class="cat">أخبار</span> انطلاق العام الدراسي الجديد بمدرسة راية المستقبل <span class="time">· 26 أكتوبر</span></span>
+        <span class="breaking-item"><span class="cat">أنشطة</span> مبادرة تشجير المدرسة: ١٠٠ شجرة في يوم <span class="time">· 14 أكتوبر</span></span>
+        <span class="breaking-item"><span class="cat">رياضة</span> فريق كرة القدم بالمعهد يحقق المركز الثاني في دوري شرق الدلتا <span class="time">· 12 أكتوبر</span></span>
+        <span class="breaking-item"><span class="cat">ثقافة</span> طلاب المعهد يتألقون في مسابقات النشاط الثقافي بمنطقة شرق الدلتا <span class="time">· 9 أكتوبر</span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ============================================================
+     D. Latest Articles + I. Popular sidebar
+     ============================================================ -->
+<section class="section" id="latest">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">أحدث المقالات</h2>
+      <a href="#" class="section-link">
+        عرض الكل
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      </a>
+    </div>
+
+    <div class="articles-layout">
+      <div class="articles-grid" id="articles">
+        <article class="article-card">
+          <a href="#" class="article-card-image">
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80&auto=format&fit=crop" alt="انطلاق العام الدراسي" loading="lazy">
+            <span class="category-badge">أخبار</span>
+          </a>
+          <div class="article-card-body">
+            <h3><a href="#">انطلاق العام الدراسي الجديد بمدرسة راية المستقبل</a></h3>
+            <p class="excerpt">بدأت الدراسة في راية المستقبل بحماس كبير بين الطلاب وأولياء الأمور.</p>
+            <div class="article-card-meta">
+              <span class="author"><span class="author-avatar">م</span> محمد طالب</span>
+              <div class="right">
+                <span>26 أكتوبر 2026</span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  3 د
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <a href="#" class="article-card-image">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80&auto=format&fit=crop" alt="ورشة التفكير التصميمي" loading="lazy">
+            <span class="category-badge">أنشطة طلابية</span>
+          </a>
+          <div class="article-card-body">
+            <h3><a href="#">ورشة عمل حول التفكير التصميمي للطلاب</a></h3>
+            <p class="excerpt">نظمت المدرسة ورشة تفاعلية لتعريف الطلاب بمنهجية التفكير التصميمي.</p>
+            <div class="article-card-meta">
+              <span class="author"><span class="author-avatar">م</span> محمد طالب</span>
+              <div class="right">
+                <span>24 أكتوبر 2026</span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  4 د
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <a href="#" class="article-card-image">
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=80&auto=format&fit=crop" alt="حوار مع طالب متميز" loading="lazy">
+            <span class="category-badge">حوار</span>
+          </a>
+          <div class="article-card-body">
+            <h3><a href="#">حوار مع الطالب المتميز أحمد سامي</a></h3>
+            <p class="excerpt">حوار مع طالب متميز فاز بالمركز الأول في مسابقة العلوم الوطنية.</p>
+            <div class="article-card-meta">
+              <span class="author"><span class="author-avatar">م</span> محمد طالب</span>
+              <div class="right">
+                <span>21 أكتوبر 2026</span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  6 د
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <a href="#" class="article-card-image">
+            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80&auto=format&fit=crop" alt="أهمية القراءة" loading="lazy">
+            <span class="category-badge">رأي</span>
+          </a>
+          <div class="article-card-body">
+            <h3><a href="#">أهمية القراءة في عصر التقنية</a></h3>
+            <p class="excerpt">مقال رأي حول دور القراءة في تكوين شخصية الطالب المعاصر.</p>
+            <div class="article-card-meta">
+              <span class="author"><span class="author-avatar">م</span> محمد طالب</span>
+              <div class="right">
+                <span>18 أكتوبر 2026</span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  5 د
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <a href="#" class="article-card-image">
+            <img src="https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?w=600&q=80&auto=format&fit=crop" alt="مبادرة التشجير" loading="lazy">
+            <span class="category-badge">أخبار</span>
+          </a>
+          <div class="article-card-body">
+            <h3><a href="#">مبادرة تشجير المدرسة: ١٠٠ شجرة في يوم</a></h3>
+            <p class="excerpt">أطلق طلاب نادي البيئة مبادرة لزراعة مئة شجرة داخل ساحة المدرسة.</p>
+            <div class="article-card-meta">
+              <span class="author"><span class="author-avatar">م</span> محمد طالب</span>
+              <div class="right">
+                <span>14 أكتوبر 2026</span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  3 د
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <a href="#" class="article-card-image">
+            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=600&q=80&auto=format&fit=crop" alt="نصائح المذاكرة" loading="lazy">
+            <span class="category-badge">تربية وتعليم</span>
+          </a>
+          <div class="article-card-body">
+            <h3><a href="#">كيف تذاكر بفعالية؟ نصائح من المتفوقين</a></h3>
+            <p class="excerpt">مجموعة من النصائح العملية للطلاب لتحسين طرق المذاكرة.</p>
+            <div class="article-card-meta">
+              <span class="author"><span class="author-avatar">م</span> محمد طالب</span>
+              <div class="right">
+                <span>10 أكتوبر 2026</span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  7 د
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- I. Popular Articles sidebar -->
+      <aside class="popular-sidebar" aria-label="الأكثر قراءة">
+        <h4>الأكثر قراءة</h4>
+        <ol class="popular-list">
+          <li class="popular-item">
+            <div class="popular-rank">01</div>
+            <div>
+              <h5><a href="#">أهمية القراءة في عصر التقنية</a></h5>
+              <div class="meta"><span class="cat">رأي</span><span>· 18 أكتوبر 2026</span></div>
+            </div>
+          </li>
+          <li class="popular-item">
+            <div class="popular-rank">02</div>
+            <div>
+              <h5><a href="#">مبادرة تشجير المدرسة: ١٠٠ شجرة في يوم</a></h5>
+              <div class="meta"><span class="cat">أخبار</span><span>· 14 أكتوبر 2026</span></div>
+            </div>
+          </li>
+          <li class="popular-item">
+            <div class="popular-rank">03</div>
+            <div>
+              <h5><a href="#">كيف تذاكر بفعالية؟ نصائح من المتفوقين</a></h5>
+              <div class="meta"><span class="cat">تربية وتعليم</span><span>· 10 أكتوبر 2026</span></div>
+            </div>
+          </li>
+          <li class="popular-item">
+            <div class="popular-rank">04</div>
+            <div>
+              <h5><a href="#">حوار مع الطالب المتميز أحمد سامي</a></h5>
+              <div class="meta"><span class="cat">حوار</span><span>· 21 أكتوبر 2026</span></div>
+            </div>
+          </li>
+          <li class="popular-item">
+            <div class="popular-rank">05</div>
+            <div>
+              <h5><a href="#">ورشة عمل حول التفكير التصميمي للطلاب</a></h5>
+              <div class="meta"><span class="cat">أنشطة طلابية</span><span>· 24 أكتوبر 2026</span></div>
+            </div>
+          </li>
+        </ol>
+      </aside>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     E. Student Activities
+     ============================================================ -->
+<section class="section section-alt" id="activities">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">أنشطة طلابية</h2>
+      <a href="#" class="section-link">
+        عرض الكل
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      </a>
+    </div>
+
+    <div class="activities-grid">
+      <article class="activity-card">
+        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&q=80&auto=format&fit=crop" alt="فريق التطوع المجتمعي" loading="lazy">
+        <div class="activity-card-content">
+          <span class="badge">تطوع</span>
+          <h3>فريق التطوع المجتمعي</h3>
+          <p>فريق طلابي ينظم حملات تطوعية لخدمة المجتمع المحلي.</p>
+        </div>
+      </article>
+
+      <article class="activity-card">
+        <img src="https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?w=600&q=80&auto=format&fit=crop" alt="نادي البيئة" loading="lazy">
+        <div class="activity-card-content">
+          <span class="badge">بيئة</span>
+          <h3>نادي البيئة</h3>
+          <p>نادي يعنى بالقضايا البيئية والتوعية بأهمية الحفاظ على البيئة.</p>
+        </div>
+      </article>
+
+      <article class="activity-card">
+        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&q=80&auto=format&fit=crop" alt="نادي العلوم" loading="lazy">
+        <div class="activity-card-content">
+          <span class="badge">علوم</span>
+          <h3>نادي العلوم</h3>
+          <p>نادي الطلاب المهتمين بالعلوم والتجارب العملية. يجتمع أسبوعياً يوم الثلاثاء.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     F. Interviews & Student Stories
+     ============================================================ -->
+<section class="section" id="interviews">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">حوارات وقصص طلابية</h2>
+      <a href="#" class="section-link">
+        عرض الكل
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      </a>
+    </div>
+
+    <div class="interviews-grid">
+      <article class="interview-card featured">
+        <div class="interview-portrait">
+          <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80&auto=format&fit=crop" alt="أحمد سامي" loading="lazy">
+          <div class="quote-mark">"</div>
+        </div>
+        <div class="interview-body">
+          <div class="role">بطل مسابقة العلوم الوطنية</div>
+          <h3><a href="#">حوار مع الطالب المتميز أحمد سامي</a></h3>
+          <div class="student">أحمد سامي — الصف الثالث الثانوي</div>
+          <p class="intro">فاز بالمركز الأول في مسابقة العلوم الوطنية عن مشروع طاقة متجددة. نستضيفه في حوار عن رحلته وكيف وازن بين الدراسة والبحث العلمي، وعن دعم أساتذته وأسرته.</p>
+          <a href="#" class="read-interview">
+            اقرأ الحوار كاملاً
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="interview-card">
+        <div class="interview-portrait">
+          <img src="https://images.unsplash.com/photo-1544717305-2782549b513a?w=400&q=80&auto=format&fit=crop" alt="عبد الله هشام" loading="lazy">
+        </div>
+        <div class="interview-body">
+          <div class="role">بطل كيك بوكس</div>
+          <h3><a href="#">عبد الله هشام: بطل الكيك بوكس في وزن ٥٧ كجم</a></h3>
+          <p class="intro">حوار مع الطالب الذي أحرز ميدالية ذهبية على مستوى الجمهورية.</p>
+          <a href="#" class="read-interview">
+            اقرأ الحوار
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="interview-card">
+        <div class="interview-portrait">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&auto=format&fit=crop" alt="طالبة من الفنون التشكيلية" loading="lazy">
+        </div>
+        <div class="interview-body">
+          <div class="role">فنون تشكيلية</div>
+          <h3><a href="#">طالبات المعهد يتألقن في مسابقة الفنون التشكيلية</a></h3>
+          <p class="intro">لقاء مع الطالبات المتميزات في مجال الفنون التشكيلية بمنطقة شرق الدلتا.</p>
+          <a href="#" class="read-interview">
+            اقرأ الحوار
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     G. Upcoming Events
+     ============================================================ -->
+<section class="section section-alt" id="events">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">فعاليات قادمة</h2>
+      <a href="#" class="section-link">
+        عرض الكل
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      </a>
+    </div>
+
+    <div class="events-grid">
+      <article class="event-card">
+        <div class="event-date">
+          <div class="day">11</div>
+          <div class="month">نوفمبر</div>
+        </div>
+        <div class="event-content">
+          <div class="cat">معرض</div>
+          <h3><a href="#">معرض العلوم السنوي</a></h3>
+          <div class="location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            قاعة المناسبات الرئيسية — مدرسة راية المستقبل
+          </div>
+          <div class="actions">
+            <a href="#" class="btn-register">سجّل الآن</a>
+            <a href="#" class="btn-details">التفاصيل</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="event-card">
+        <div class="event-date">
+          <div class="day">27</div>
+          <div class="month">نوفمبر</div>
+        </div>
+        <div class="event-content">
+          <div class="cat">ثقافة</div>
+          <h3><a href="#">أمسية شعرية مفتوحة</a></h3>
+          <div class="location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            مدرسة راية المستقبل — القاعة الكبرى
+          </div>
+          <div class="actions">
+            <a href="#" class="btn-register">سجّل الآن</a>
+            <a href="#" class="btn-details">التفاصيل</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="event-card">
+        <div class="event-date">
+          <div class="day">04</div>
+          <div class="month">ديسمبر</div>
+        </div>
+        <div class="event-content">
+          <div class="cat">ورشة</div>
+          <h3><a href="#">ورشة البرمجة بلغة بايثون للمبتدئين</a></h3>
+          <div class="location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            معمل الحاسب — مبنى الأنشطة
+          </div>
+          <div class="actions">
+            <a href="#" class="btn-register">سجّل الآن</a>
+            <a href="#" class="btn-details">التفاصيل</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="event-card">
+        <div class="event-date">
+          <div class="day">18</div>
+          <div class="month">ديسمبر</div>
+        </div>
+        <div class="event-content">
+          <div class="cat">رياضة</div>
+          <h3><a href="#">بطولة كرة القدم الدورية بين الفصول</a></h3>
+          <div class="location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            ملعب المعهد الرياضي
+          </div>
+          <div class="actions">
+            <a href="#" class="btn-register">سجّل الآن</a>
+            <a href="#" class="btn-details">التفاصيل</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     H. Educational Opportunities
+     ============================================================ -->
+<section class="section" id="opportunities">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">فرص تعليمية</h2>
+      <a href="#" class="section-link">
+        عرض الكل
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      </a>
+    </div>
+
+    <div class="opportunities-grid">
+      <article class="opportunity-card">
+        <div class="opportunity-header">
+          <span class="opportunity-type">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            دورة تدريبية
+          </span>
+          <span class="deadline-badge">9 أيام متبقية</span>
+        </div>
+        <div class="opportunity-body">
+          <div class="opportunity-organizer">أكاديمية المستقبل التقني</div>
+          <h3><a href="#">دورة تدريبية مكثفة في البرمجة بلغة بايثون</a></h3>
+          <p>دورة تدريبية مكثفة لمدة شهر في أساسيات البرمجة باستخدام لغة بايثون، تناسب الطلاب المبتدئين الراغبين في دخول عالم التقنية.</p>
+          <div class="opportunity-footer">
+            <span class="date">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              يبدأ 9 نوفمبر 2026
+            </span>
+            <a href="#" class="btn-apply">قدّم الآن</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="opportunity-card">
+        <div class="opportunity-header">
+          <span class="opportunity-type">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15c-4 0-8-1-8-4V5l8-3 8 3v6c0 3-4 4-8 4z"/><path d="M12 15v6"/></svg>
+            مسابقة
+          </span>
+          <span class="deadline-badge">22 يوم متبقية</span>
+        </div>
+        <div class="opportunity-body">
+          <div class="opportunity-organizer">نادي الأدب المدرسي</div>
+          <h3><a href="#">مسابقة القصة القصيرة السنوية</a></h3>
+          <p>مسابقة سنوية لأفضل قصة قصيرة طلابية. الجوائز مالية وقيمة، ويُكرم الفائزون في حفل ختام الأنشطة الثقافية للعام الدراسي.</p>
+          <div class="opportunity-footer">
+            <span class="date">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              آخر موعد 22 نوفمبر
+            </span>
+            <a href="#" class="btn-apply">قدّم الآن</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="opportunity-card">
+        <div class="opportunity-header">
+          <span class="opportunity-type">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            منحة دراسية
+          </span>
+          <span class="deadline-badge">15 يوم متبقية</span>
+        </div>
+        <div class="opportunity-body">
+          <div class="opportunity-organizer">برنامج المنح المصرية للطلاب المتفوقين</div>
+          <h3><a href="#">منحة دراسية كاملة للطلاب المتفوقين علمياً</a></h3>
+          <p>منحة تغطي الرسوم الدراسية الكاملة للطلاب المتفوقين في المواد العلمية، مع توفير فرص تدريب صيفي في مؤسسات شريكة.</p>
+          <div class="opportunity-footer">
+            <span class="date">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              آخر موعد 15 نوفمبر
+            </span>
+            <a href="#" class="btn-apply">قدّم الآن</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     J. Newsletter
+     ============================================================ -->
+<section class="newsletter">
+  <div class="container">
+    <div class="newsletter-inner">
+      <span class="newsletter-eyebrow">اشترك في النشرة</span>
+      <h2>هل لديك قصة تستحق أن تُروى؟</h2>
+      <p>أرسل مقالك لراية المستقبل، وسيقوم فريق التحرير بمراجعته. نبحث عن أصوات طلابية جريئة ومحتوًى أصيلاً يهم المجتمع المدرسي. اشترك ليصلك كل جديد أولاً بأول.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="بريدك الإلكتروني" required aria-label="بريدك الإلكتروني">
+        <button type="submit">اشترك</button>
+      </form>
+      <p class="newsletter-note">نحترم خصوصيتك — لن نشارك بريدك مع أي جهة أخرى.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     K. Footer
+     ============================================================ -->
+<footer class="site-footer" id="about">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="brand">
+          <div class="brand-mark">ر</div>
+          <div class="brand-text">
+            <div class="brand-name">راية المستقبل</div>
+            <div class="brand-tag">RAYA · E-MAGAZINE</div>
+          </div>
+        </a>
+        <p>مجلة طلابية رقمية تهتم بقضايا التعليم والشأن الطالبي. راية المستقبل مجلة طلابية رقمية تعني بقضايا التعليم والأخبار الطلابية والأنشطة والفعاليات والفرص التعليمية.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="فيسبوك">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="تويتر">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+          </a>
+          <a href="#" aria-label="إنستغرام">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="يوتيوب">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#032B22"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>روابط</h4>
+        <ul>
+          <li><a href="#hero">الرئيسية</a></li>
+          <li><a href="#latest">أخبار</a></li>
+          <li><a href="#articles">مقالات</a></li>
+          <li><a href="#events">فعاليات</a></li>
+          <li><a href="#opportunities">فرص تعليمية</a></li>
+          <li><a href="#">هيئة التحرير</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>الأقسام</h4>
+        <ul>
+          <li><a href="#">أخبار</a></li>
+          <li><a href="#">أنشطة طلابية</a></li>
+          <li><a href="#">تربية وتعليم</a></li>
+          <li><a href="#">حوار</a></li>
+          <li><a href="#">رأي</a></li>
+          <li><a href="#">فرص تعليمية</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>تواصل معنا</h4>
+        <ul class="footer-contact">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span><a href="mailto:raya@example.edu.eg" style="color:inherit;">raya@example.edu.eg</a></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>المعهد العالي راية المستقبل للإدارة والتجارة الخارجية — شرق الدلتا، مصر</span>
+          </li>
+        </ul>
+        <a href="#" class="btn-login" style="margin-top:12px; display:inline-block; background:#C9A04A; color:#032B22; padding:8px 18px; border-radius:3px; font-size:13px; font-weight:700;">أرسل مقالاً</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© راية المستقبل 2026 — جميع الحقوق محفوظة.</div>
+      <div class="legal">
+        <a href="#">سياسة الخصوصية</a>
+        <a href="#">الشروط والأحكام</a>
+        <a href="#">تواصل معنا</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top button -->
+<button id="backToTop" aria-label="العودة للأعلى" style="
+  position: fixed; bottom: 24px; left: 24px;
+  width: 44px; height: 44px;
+  background: #C9A04A; color: #032B22;
+  border-radius: 50%; display: none; place-items: center;
+  box-shadow: 0 12px 28px rgba(32,40,32,0.08), 0 4px 8px rgba(32,40,32,0.04);
+  z-index: 90; transition: all 0.2s ease;
+">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+(function() {
+  'use strict';
+
+  // Sticky header shadow on scroll
+  const header = document.getElementById('header');
+  const backToTop = document.getElementById('backToTop');
+  function onScroll() {
+    const y = window.scrollY;
+    if (y > 10) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+    if (y > 600) backToTop.style.display = 'grid';
+    else backToTop.style.display = 'none';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Search overlay
+  const searchToggle = document.getElementById('searchToggle');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const closeSearch = document.getElementById('closeSearch');
+  const searchInput = document.getElementById('searchInput');
+  function openSearch() {
+    searchOverlay.classList.add('active');
+    setTimeout(() => searchInput.focus(), 50);
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSearchFn() {
+    searchOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  searchToggle.addEventListener('click', openSearch);
+  closeSearch.addEventListener('click', closeSearchFn);
+  searchOverlay.addEventListener('click', (e) => { if (e.target === searchOverlay) closeSearchFn(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && searchOverlay.classList.contains('active')) closeSearchFn();
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
+  });
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && searchInput.value.trim()) {
+      alert('جارٍ البحث عن: ' + searchInput.value.trim() + '\n(سيتم توصيل هذه الميزة بنظام البحث الفعلي)');
+    }
+  });
+
+  // Mobile menu
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileOverlay = document.getElementById('mobileOverlay');
+  const closeMenu = document.getElementById('closeMenu');
+  function openMenu() {
+    mobileMenu.classList.add('open');
+    mobileOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenuFn() {
+    mobileMenu.classList.remove('open');
+    mobileOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  menuToggle.addEventListener('click', openMenu);
+  closeMenu.addEventListener('click', closeMenuFn);
+  mobileOverlay.addEventListener('click', closeMenuFn);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenuFn));
+
+  // Active nav link based on scroll position
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-menu a');
+  function updateActiveNav() {
+    let current = '';
+    sections.forEach(sec => {
+      const top = sec.offsetTop - 100;
+      if (window.scrollY >= top) current = sec.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  }
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+
+  // Newsletter form
+  const newsletterForm = document.getElementById('newsletterForm');
+  newsletterForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const input = newsletterForm.querySelector('input');
+    const btn = newsletterForm.querySelector('button');
+    const original = btn.textContent;
+    btn.textContent = '✓ تم الاشتراك';
+    btn.style.background = '#4ADE80';
+    input.value = '';
+    setTimeout(() => { btn.textContent = original; btn.style.background = ''; }, 2500);
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (href === '#' || href.length < 2) return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        const top = target.offsetTop - 80;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Lazy image fade-in
+  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          en.target.style.opacity = '0';
+          en.target.style.transition = 'opacity 0.4s ease';
+          if (en.target.complete) en.target.style.opacity = '1';
+          else en.target.addEventListener('load', () => en.target.style.opacity = '1');
+          io.unobserve(en.target);
+        }
+      });
+    });
+    lazyImages.forEach(img => io.observe(img));
+  }
+
+  console.log('%cRAYA E-MAGAZINE', 'color:#C9A04A;font-size:18px;font-weight:bold;');
+  console.log('%cمجلّة راية المستقبل — تم التحميل بنجاح', 'color:#032B22;font-size:12px;');
+})();
+</script>
+</body>
+</html>
